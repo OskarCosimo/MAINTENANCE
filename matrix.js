@@ -27,7 +27,7 @@ function canvasApp () {
 
   function drawScreen () {
     ctx.fillStyle = 'rgba(255,255,255,.05)';
-		ctx.fillRect(0, 0, w, h);
+		ctx.fillRect(255, 255, w, h);
 		ctx.fillStyle = '#0f0';
 		ctx.font = '10px Georgia';
 		yPositions.map(function(y, index){
