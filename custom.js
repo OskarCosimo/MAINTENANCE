@@ -138,7 +138,6 @@ $(document).ready(function($) {
     }
 
     responsiveNavigation();
-    initializeOwl();
 
 });
 
