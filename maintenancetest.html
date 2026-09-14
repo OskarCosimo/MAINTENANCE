@@ -49,7 +49,7 @@
             margin: 0 0 10px 0;
             line-height: 1.2;
             
-            /* Gradiente cromo metallico fedele all'immagine (antracite in alto, riflesso bianco/argento al centro-basso, base scura) */
+            /* Metallic chrome gradient (dark anthracite top, white/silver reflection mid-bottom, dark base) */
             background: linear-gradient(
                 180deg, 
                 #000000 0%, 
@@ -64,7 +64,7 @@
             background-clip: text;
             color: transparent;
 
-            /* Alone/Sfumatura gialla brillante attorno al testo (yellow halo aura) */
+            /* Bright yellow halo aura around text */
             filter: 
                 drop-shadow(0 0 2px #ffff00) 
                 drop-shadow(0 0 5px #ffea00) 
@@ -76,7 +76,7 @@
         a { color: #B8860B !important; transition: all 0.2s ease-in-out; }
         a:hover { color: #ffd700 !important; text-decoration: none; }
 
-        /* Badge di stato live */
+        /* Live status badge */
         .status-badge-container {
             margin: 15px 0 20px 0;
         }
@@ -171,14 +171,14 @@
             margin-bottom: 15px;
         }
 
-        /* Card di sfondo semi-trasparente per il contenuto principale */
+        /* Semi-transparent background card for main content */
         #content {
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 16px;
             padding: 35px 25px;
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             max-width: 680px;
             margin: 0 auto;
@@ -209,7 +209,7 @@
                     <div id="content-wrapper">
                         <div id="content" class="animate translate-z-in animation-time-2s delay-1-5s">
                             
-                            <!-- Logo Brand dimensionato e con font personalizzato -->
+                            <!-- Brand Logo with custom font -->
                             <header>
                                 <div class="brand-logo-text brand-font">MYETV</div>
                             </header>
@@ -217,7 +217,7 @@
                             <h1>Maintenance!</h1>
                             <h2>Sorry for the inconvenience, <a href="https://status.myetv.tv" target="_blank">we&rsquo;re performing some maintenance at the moment</a>.<br>Try again later.</h2>
 
-                            <!-- Badge live status -->
+                            <!-- Live status badge -->
                             <div class="status-badge-container">
                                 <a href="https://status.myetv.tv" target="_blank" class="status-badge" title="Check live system status">
                                     <span class="status-dot"></span>
