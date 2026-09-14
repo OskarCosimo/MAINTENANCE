@@ -13,7 +13,7 @@
     <meta name="keywords" content="myetv,myetv.tv,maintenance"/>
     <meta name="robots" content="index, follow"> 
 
-    <!-- Inline SVG Favicon (Risolve errore 404 favicon.ico) -->
+    <!-- Inline SVG Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111'/><text x='50%' y='68%' font-size='60' font-weight='bold' font-family='sans-serif' fill='%23B8860B' text-anchor='middle'>M</text></svg>">
 	
     <!--Fonts-->
@@ -27,16 +27,40 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 
     <style>
+        /* Definizione Font Originale del Marchio */
+        @font-face {
+            font-family: 'MYETV-LogoFont';
+            /* Modifica i percorsi se salvi i file in una sottocartella (es: fonts/nomefile.woff2) */
+            src: url('myetv-font.woff2') format('woff2'),
+                 url('myetv-font.woff') format('woff'),
+                 url('myetv-font.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Classe applicata esclusivamente alle scritte MYETV */
+        .brand-font {
+            font-family: 'MYETV-LogoFont', 'Ubuntu', sans-serif !important;
+            letter-spacing: 1.5px;
+        }
+
+        /* Logo Brand principale (dimensionamento proporzionato) */
+        .brand-logo-text {
+            display: inline-block;
+            font-size: 34px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(184, 134, 11, 0.35));
+        }
+
         span { display: inline !important; }
         a { color: #B8860B !important; transition: all 0.2s ease-in-out; }
         a:hover { color: #ffd700 !important; text-decoration: none; }
-
-        /* Logo Vettoriale */
-        .brand-logo-svg {
-            margin: 0 auto 15px auto;
-            display: inline-block;
-            filter: drop-shadow(0 0 10px rgba(184, 134, 11, 0.4));
-        }
 
         /* Badge di stato live */
         .status-badge-container {
@@ -130,7 +154,7 @@
         }
         .preload-title {
             color: #B8860B;
-            font-weight: 700;
+            font-size: 22px;
             letter-spacing: 2px;
             margin-bottom: 15px;
         }
@@ -139,12 +163,12 @@
 
 <body>
 
-<!-- Loading (Zero chiamate esterne 404) -->
+<!-- Preload -->
 <div id="preload">
     <div id="preload-content">
         <div class="preload-spinner">
             <div class="loading-logo-wraper">
-                <div class="preload-title">MYETV</div>
+                <div class="preload-title brand-font">MYETV</div>
             </div>
             <div class="tp-loader spinner"></div>
         </div>
@@ -160,23 +184,15 @@
                     <div id="content-wrapper">
                         <div id="content" class="animate translate-z-in animation-time-2s delay-1-5s">
                             
-                            <!-- Header con Logo SVG integrato: Leggero e indipendente -->
+                            <!-- Logo Brand dimensionato e con font personalizzato -->
                             <header>
-                                <svg class="brand-logo-svg" width="180" height="42" viewBox="0 0 180 42" xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                        <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#ffd700" />
-                                            <stop offset="100%" stop-color="#b8860b" />
-                                        </linearGradient>
-                                    </defs>
-                                    <text x="50%" y="32" font-family="'Ubuntu', sans-serif" font-weight="700" font-size="34" fill="url(#gold)" text-anchor="middle" letter-spacing="3">MYETV</text>
-                                </svg>
+                                <div class="brand-logo-text brand-font">MYETV</div>
                             </header>
 
                             <h1>Maintenance!</h1>
                             <h2>Sorry for the inconvenience, <a href="https://status.myetv.tv" target="_blank">we&rsquo;re performing some maintenance at the moment</a>.<br>Try again later.</h2>
 
-                            <!-- Badge diretto per lo stato del server -->
+                            <!-- Badge live status -->
                             <div class="status-badge-container">
                                 <a href="https://status.myetv.tv" target="_blank" class="status-badge" title="Check live system status">
                                     <span class="status-dot"></span>
@@ -187,7 +203,7 @@
                             <div style="width:100%;" class="center count-down animate small" data-countdown-year="2017" data-countdown-month="6" data-countdown-day="21" data-countdown-seconds="+2m"></div>
 				
                             <div class="action-buttons">
-                                <a href="https://www.myetv.tv/" target="_self" class="button-xs">MYETV.TV</a>
+                                <a href="https://www.myetv.tv/" target="_self" class="button-xs"><span class="brand-font">MYETV</span>.TV</a>
                                 <a href="https://status.myetv.tv" target="_blank" class="button-xs button-status"><i class="fa fa-signal"></i> STATUS</a>
                                 <a href="https://blog.myetv.tv/" target="_blank" class="button-xs"><span>BLOG</span></a>
                                 <a href="#contact" class="button-xs open-side-panel"><span>CONTACTS</span></a>
@@ -233,7 +249,6 @@
                         <section>
                             <h2>GET IN TOUCH</h2>
                             
-                            <!-- Box Social Affiancati: Facebook & X/Twitter -->
                             <div class="social-cards-grid">
                                 <div class="social-card">
                                     <i class="fa fa-facebook" style="color:#3b5998;"></i>
@@ -247,7 +262,6 @@
                                 </div>
                             </div>
 
-                            <!-- Live Timeline Twitter/X -->
                             <div class="row">
                                 <div style="width:100%;max-height:300px;">
                                     <a class="twitter-timeline" href="https://twitter.com/myetvtv?ref_src=twsrc%5Etfw">Tweets by myetvtv</a> 
