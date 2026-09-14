@@ -20,8 +20,8 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 	
-    <!--General Style-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <!-- Bootstrap 5.3 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1hZUkT4EVXF63r+XipQ2YQ88YA5+h8liHEINzXHRkl6SneHCYXKdrmgCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha256-PZLhE6wwMbg4AB3d35ZdBF9HD/dI/y4RazA3iRDurss=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trackpad-scroll-emulator/1.0.8/trackpad-scroll-emulator.min.css" integrity="sha256-x72B7ZA1rSGTyvyPC5aV/IUbCeVdL9GzN7uDnEN0nMg=" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" type="text/css">
@@ -44,7 +44,7 @@
 
         .brand-logo-text {
             display: inline-block;
-            font-size: 34px;
+            font-size: clamp(28px, 6vw, 36px);
             font-weight: 700;
             margin: 0 0 10px 0;
             line-height: 1.2;
@@ -75,6 +75,16 @@
         span { display: inline !important; }
         a { color: #ffd700 !important; transition: all 0.2s ease-in-out; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
         a:hover { color: #ffffff !important; text-decoration: none; text-shadow: 0 0 8px rgba(255, 215, 0, 0.8); }
+
+        /* Typography responsiveness */
+        h1 {
+            font-size: clamp(24px, 5vw, 36px);
+            font-weight: 700;
+        }
+        h2 {
+            font-size: clamp(14px, 3.5vw, 18px);
+            line-height: 1.5;
+        }
 
         /* Footer social icons - unified size, alignment & high visibility */
         .social {
@@ -126,6 +136,7 @@
             color: #fff !important;
             font-size: 13px;
             box-shadow: 0 0 12px rgba(184, 134, 11, 0.2);
+            text-decoration: none !important;
         }
         .status-badge:hover {
             border-color: #ffd700;
@@ -146,9 +157,17 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
         }
 
+        /* Action buttons container */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
         .button-xs {
             display: inline-block;
-            margin: 4px;
+            margin: 2px;
             padding: 9px 18px;
             background: rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(184, 134, 11, 0.7);
@@ -157,7 +176,7 @@
             text-transform: uppercase;
             font-size: 12px;
             letter-spacing: 1px;
-            backdrop-filter: blur(4px);
+            text-decoration: none !important;
         }
         .button-xs:hover {
             background: rgba(184, 134, 11, 0.3);
@@ -173,8 +192,14 @@
 
         .social-cards-grid {
             display: flex;
+            flex-direction: row;
             gap: 15px;
             margin: 15px 0 25px 0;
+        }
+        @media (max-width: 576px) {
+            .social-cards-grid {
+                flex-direction: column;
+            }
         }
         .social-card {
             flex: 1;
@@ -207,14 +232,15 @@
             margin-bottom: 15px;
         }
 
-        /* Semi-transparent background card for main content */
+        /* Semi-transparent background card for main content (no blur filter) */
         #content {
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 16px;
-            padding: 35px 25px;
+            padding: clamp(20px, 5vw, 35px) clamp(15px, 4vw, 25px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             max-width: 680px;
+            width: 100%;
             margin: 0 auto;
         }
     </style>
@@ -238,9 +264,9 @@
 <div id="outer-wrapper" class="animate translate-z-in">
     <div id="inner-wrapper">
         <div id="table-wrapper">
-            <div class="container center">
-                <div id="row-content">
-                    <div id="content-wrapper">
+            <div class="container text-center">
+                <div id="row-content" class="row justify-content-center">
+                    <div id="content-wrapper" class="col-12 col-md-10 col-lg-8">
                         <div id="content" class="animate translate-z-in animation-time-2s delay-1-5s">
                             
                             <!-- Brand Logo with custom font -->
@@ -249,7 +275,7 @@
                             </header>
 
                             <h1>Maintenance!</h1>
-                            <h2>Sorry for the inconvenience, <a href="https://status.myetv.tv" target="_blank">we&rsquo;re performing some maintenance at the moment</a>.<br>Try again later.</h2>
+                            <h2>Sorry for the inconvenience, <a href="https://status.myetv.tv" target="_blank">we&rsquo;re performing some maintenance at the moment</a>.<br class="d-none d-sm-inline">Try again later.</h2>
 
                             <!-- Live status badge -->
                             <div class="status-badge-container">
@@ -259,7 +285,7 @@
                                 </a>
                             </div>
 
-                            <div style="width:100%;" class="center count-down animate small" data-countdown-year="2017" data-countdown-month="6" data-countdown-day="21" data-countdown-seconds="+2m"></div>
+                            <div style="width:100%;" class="text-center count-down animate small" data-countdown-year="2017" data-countdown-month="6" data-countdown-day="21" data-countdown-seconds="+2m"></div>
 				
                             <div class="action-buttons">
                                 <a href="https://www.myetv.tv/" target="_self" class="button-xs"><span class="brand-font">MYETV</span>.TV</a>
@@ -270,15 +296,17 @@
                         </div>
                     </div>
                 </div>
-                <div id="row-footer">
-                    <footer>
-                        <div class="social animate translate-z-in delay-2s">
-                            <a href="mailto:admin@myetv.tv"><span class="fa fa-envelope" title="Email"></span></a>
-                            <a href="https://www.facebook.com/myetv.tv/" target="_blank"><span class="fa fa-facebook" title="Facebook"></span></a>
-                            <a href="https://twitter.com/myetvtv" target="_blank"><span class="fa fa-twitter" title="Twitter / X"></span></a>
-                            <a href="https://status.myetv.tv" target="_blank"><span class="fa fa-signal" title="Live Status"></span></a>
-                        </div>
-                    </footer>
+                <div id="row-footer" class="row">
+                    <div class="col-12">
+                        <footer>
+                            <div class="social animate translate-z-in delay-2s">
+                                <a href="mailto:admin@myetv.tv"><span class="fa fa-envelope" title="Email"></span></a>
+                                <a href="https://www.facebook.com/myetv.tv/" target="_blank"><span class="fa fa-facebook" title="Facebook"></span></a>
+                                <a href="https://twitter.com/myetvtv" target="_blank"><span class="fa fa-twitter" title="Twitter / X"></span></a>
+                                <a href="https://status.myetv.tv" target="_blank"><span class="fa fa-signal" title="Live Status"></span></a>
+                            </div>
+                        </footer>
+                    </div>
                 </div>
             </div>
         </div>
@@ -296,7 +324,7 @@
         <div class="tse-scrollable">
             <div class="tse-content">
                 <div class="wrapper">
-                    <div class="container center">
+                    <div class="container text-center">
                         <section>
                             <h2>CONTACT US</h2>
                             <p>Want to say hello? Want to know more about us? Drop us an email and we will get back to you as soon as we can.</p>
@@ -322,7 +350,7 @@
                             </div>
 
                             <div class="row">
-                                <div style="width:100%;max-height:300px;">
+                                <div class="col-12" style="max-height:300px;">
                                     <a class="twitter-timeline" href="https://twitter.com/myetvtv?ref_src=twsrc%5Etfw">Tweets by myetvtv</a> 
                                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
@@ -337,9 +365,10 @@
 
 <div class="backdrop"></div>
 
-<!--Java Scripts-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js" integrity="sha512-8LENNbXmzI/Gbj+OwXmqR6V4QaUAw0/porPzy1+dQoJqC0JPHedWoe0DDOTL2uHA5XXJyIsPtiMHH86pVlay6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Bootstrap 5.3 JS Bundle -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otujdxiA5fUB926VKNScvYwGA8r4Lp3n4B1t1K9W15Z3L2s3T84j5B9N4r5a498v1a0b3687c473c==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script 
   src="https://mysystemstatus.myetv.tv/assets/js/embed.js" 
   data-fallback="https://status.myetv.tv"
@@ -350,4 +379,4 @@
 <script type="text/javascript" src="custom.js"></script>
 <script type="text/javascript" src="matrix.js"></script>
 </body>
-</html>
+</html>cd
