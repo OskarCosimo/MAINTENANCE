@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 	
     <!-- Bootstrap 5.3 CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1hZUkT4EVXF63r+XipQ2YQ88YA5+h8liHEINzXHRkl6SneHCYXKdrmgCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha256-PZLhE6wwMbg4AB3d35ZdBF9HD/dI/y4RazA3iRDurss=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trackpad-scroll-emulator/1.0.8/trackpad-scroll-emulator.min.css" integrity="sha256-x72B7ZA1rSGTyvyPC5aV/IUbCeVdL9GzN7uDnEN0nMg=" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" type="text/css">
@@ -232,6 +232,48 @@
             margin-bottom: 15px;
         }
 
+        /* Interactive Countdown Timer Styles */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 18px 0;
+        }
+        .countdown-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.65);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        .countdown-digits {
+            font-family: monospace, sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #ffd700;
+            letter-spacing: 1px;
+        }
+        .timer-btn {
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.6);
+            color: #ffd700;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .timer-btn:hover {
+            background: rgba(255, 215, 0, 0.3);
+            color: #ffffff;
+            border-color: #ffd700;
+        }
+
         /* Semi-transparent background card for main content (no blur filter) */
         #content {
             background: rgba(0, 0, 0, 0.3);
@@ -285,7 +327,16 @@
                                 </a>
                             </div>
 
-                            <div style="width:100%;" class="text-center count-down animate small" data-countdown-year="2017" data-countdown-month="6" data-countdown-day="21" data-countdown-seconds="+2m"></div>
+                            <!-- Interactive 2-Minute Countdown Timer -->
+                            <div class="countdown-container">
+                                <div class="countdown-box">
+                                    <span><i class="fa fa-clock-o" style="color:#ffd700;"></i> Redirecting in:</span>
+                                    <span id="countdown-timer" class="countdown-digits">02:00</span>
+                                    <button id="timer-toggle-btn" class="timer-btn" type="button" title="Pause or resume countdown">
+                                        <i class="fa fa-pause" id="timer-toggle-icon"></i> <span id="timer-toggle-text">Pause</span>
+                                    </button>
+                                </div>
+                            </div>
 				
                             <div class="action-buttons">
                                 <a href="https://www.myetv.tv/" target="_self" class="button-xs"><span class="brand-font">MYETV</span>.TV</a>
@@ -366,16 +417,69 @@
 <div class="backdrop"></div>
 
 <!-- JavaScripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js" integrity="sha512-8LENNbXmzI/Gbj+OwXmqR6V4QaUAw0/porPzy1+dQoJqC0JPHedWoe0DDOTL2uHA5XXJyIsPtiMHH86pVlay6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <!-- Bootstrap 5.3 JS Bundle -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js" integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otujdxiA5fUB926VKNScvYwGA8r4Lp3n4B1t1K9W15Z3L2s3T84j5B9N4r5a498v1a0b3687c473c==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script 
   src="https://mysystemstatus.myetv.tv/assets/js/embed.js" 
   data-fallback="https://status.myetv.tv"
   onerror="this.onerror=null;this.src='https://status.myetv.tv/assets/js/embed.js';"
   defer>
 </script>
+<script type="text/javascript" src="jquery.plugin.min.js"></script>
 <script type="text/javascript" src="custom.js"></script>
 <script type="text/javascript" src="matrix.js"></script>
+
+<!-- 2-Minute Countdown Logic with Pause/Resume & Auto-Redirect -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var timeLeft = 120; // 2 minutes in seconds
+    var isPaused = false;
+    var timerElement = document.getElementById('countdown-timer');
+    var toggleBtn = document.getElementById('timer-toggle-btn');
+    var toggleIcon = document.getElementById('timer-toggle-icon');
+    var toggleText = document.getElementById('timer-toggle-text');
+
+    function updateDisplay() {
+        if (!timerElement) return;
+        var minutes = Math.floor(timeLeft / 60);
+        var seconds = timeLeft % 60;
+        timerElement.textContent = 
+            (minutes < 10 ? '0' + minutes : minutes) + ':' + 
+            (seconds < 10 ? '0' + seconds : seconds);
+    }
+
+    var interval = setInterval(function() {
+        if (!isPaused) {
+            timeLeft--;
+            updateDisplay();
+            if (timeLeft <= 0) {
+                clearInterval(interval);
+                window.location.href = 'https://www.myetv.tv';
+            }
+        }
+    }, 1000);
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            isPaused = !isPaused;
+            if (isPaused) {
+                toggleIcon.className = 'fa fa-play';
+                toggleText.textContent = 'Resume';
+                toggleBtn.style.borderColor = '#00ff66';
+                toggleBtn.style.color = '#00ff66';
+            } else {
+                toggleIcon.className = 'fa fa-pause';
+                toggleText.textContent = 'Pause';
+                toggleBtn.style.borderColor = '#ffd700';
+                toggleBtn.style.color = '#ffd700';
+            }
+        });
+    }
+
+    updateDisplay();
+});
+</script>
 </body>
-</html>cd
+</html>
