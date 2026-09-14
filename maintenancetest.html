@@ -42,6 +42,64 @@
             letter-spacing: 1.5px;
         }
 
+        /* Full page layout reset & background canvas fix */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 100vh !important;
+            overflow-x: hidden;
+            background-color: #000;
+        }
+
+        /* Fullscreen Matrix Background Canvas (No margins/padding) */
+        .background-wrapper, .background-wrapper.overlay {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            z-index: 0 !important;
+            overflow: hidden !important;
+        }
+        #myCanvas {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important;
+        }
+
+        /* Perfect Vertical and Horizontal Centering for Large Screens & Mobile */
+        #outer-wrapper, #inner-wrapper, #table-wrapper {
+            position: relative !important;
+            z-index: 1 !important;
+            width: 100% !important;
+            min-height: 100vh !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin: 0 !important;
+            padding: 25px 15px !important;
+            box-sizing: border-box !important;
+        }
+
+        .container {
+            width: 100% !important;
+            max-width: 900px !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
         .brand-logo-text {
             display: inline-block;
             font-size: clamp(28px, 6vw, 36px);
@@ -288,6 +346,8 @@
             align-items: center !important;
             float: none !important;
             margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 680px !important;
         }
         #content {
             background: rgba(0, 0, 0, 0.3);
@@ -299,6 +359,13 @@
             width: 100%;
             margin: 0 auto !important;
             text-align: center !important;
+        }
+        #row-footer {
+            width: 100% !important;
+            margin: 0 auto !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
         }
     </style>
 </head>
