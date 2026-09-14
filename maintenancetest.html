@@ -14,7 +14,7 @@
     <meta name="robots" content="index, follow"> 
 
     <!-- Inline SVG Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111'/><text x='50%' y='68%' font-size='60' font-weight='bold' font-family='sans-serif' fill='%23B8860B' text-anchor='middle'>M</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111'/><text x='50%' y='68%' font-size='60' font-weight='bold' font-family='sans-serif' fill='%23ffd700' text-anchor='middle'>M</text></svg>">
 	
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
@@ -23,14 +23,10 @@
     <!--General Style-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha256-PZLhE6wwMbg4AB3d35ZdBF9HD/dI/y4RazA3iRDurss=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trackpad-scroll-emulator/1.0.8/trackpad-scroll-emulator.min.css" integrity="sha256-x72B7ZA1rSGTyvyPC5aV/IUbCeVdL9GzN7uDnEN0nMg=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css" type="text/css">
 
     <style>
-        /* Definizione Font Originale del Marchio */
         @font-face {
             font-family: 'MYETV-LogoFont';
-            /* Modifica i percorsi se salvi i file in una sottocartella (es: fonts/nomefile.woff2) */
             src: url('myetv-font.woff2') format('woff2'),
                  url('myetv-font.woff') format('woff'),
                  url('myetv-font.ttf') format('truetype');
@@ -39,80 +35,195 @@
             font-display: swap;
         }
 
-        /* Classe applicata esclusivamente alle scritte MYETV */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Ubuntu', sans-serif;
+            overflow-x: hidden;
+        }
+
         .brand-font {
             font-family: 'MYETV-LogoFont', 'Ubuntu', sans-serif !important;
             letter-spacing: 1.5px;
         }
 
-        /* Logo Brand principale (dimensionamento proporzionato) */
+        /* 
+         * LOGO ORIGINAL MYETV DESIGN:
+         * 1. Metallic Chrome Gradient (Dark Charcoal Top -> Bright Silver Reflection -> Darker Base)
+         * 2. Signature Yellow Halo Glow (Sfumatura Gialla Attorno)
+         */
+        .brand-logo-container {
+            display: inline-flex;
+            align-items: baseline;
+            position: relative;
+            padding: 5px 15px;
+        }
+
         .brand-logo-text {
             display: inline-block;
-            font-size: 34px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+            font-size: 48px;
+            font-weight: 900;
+            font-style: italic; /* Inclinazione originale */
+            margin: 0;
+            line-height: 1;
+            text-transform: uppercase;
+            
+            /* Gradient Metallico Cromo (Top Nero/Antracite -> Luce Argento al centro -> Base Scura) */
+            background: linear-gradient(
+                180deg, 
+                #000000 0%, 
+                #1a1a1a 18%, 
+                #404040 32%,
+                #d8d8d8 46%, 
+                #ffffff 52%, 
+                #aaaaaa 70%, 
+                #444444 88%,
+                #1e1e1e 100%
+            );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 8px rgba(184, 134, 11, 0.35));
+            background-clip: text;
+            color: transparent;
+
+            /* Sfumatura ed Effetto Glow Giallo Intenso attorno al logo originale */
+            filter: 
+                drop-shadow(0 0 2px #ffff33) 
+                drop-shadow(0 0 6px rgba(255, 230, 0, 0.95)) 
+                drop-shadow(0 0 14px rgba(255, 215, 0, 0.7))
+                drop-shadow(0 0 25px rgba(255, 190, 0, 0.4));
+            
+            transition: filter 0.3s ease, transform 0.3s ease;
+            user-select: none;
+        }
+
+        .brand-logo-container:hover .brand-logo-text {
+            filter: 
+                drop-shadow(0 0 3px #ffffff) 
+                drop-shadow(0 0 10px rgba(255, 240, 0, 1)) 
+                drop-shadow(0 0 22px rgba(255, 215, 0, 0.9))
+                drop-shadow(0 0 35px rgba(255, 180, 0, 0.6));
+            transform: scale(1.02);
+        }
+
+        /* Scritta TM Trademarks */
+        .brand-logo-tm {
+            font-size: 11px;
+            font-weight: bold;
+            font-style: normal;
+            color: #111;
+            margin-left: 3px;
+            text-shadow: 0 0 4px #ffe600, 0 0 8px #ffe600;
+            vertical-align: super;
         }
 
         span { display: inline !important; }
-        a { color: #B8860B !important; transition: all 0.2s ease-in-out; }
-        a:hover { color: #ffd700 !important; text-decoration: none; }
+        a { color: #ffd700 !important; transition: all 0.2s ease-in-out; }
+        a:hover { color: #ffffff !important; text-decoration: none; }
+
+        #outer-wrapper {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 15px;
+        }
+
+        #inner-wrapper { width: 100%; max-width: 800px; text-align: center; }
+
+        #content {
+            background: rgba(10, 10, 10, 0.75);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 16px;
+            padding: 40px 25px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.15);
+        }
+
+        h1 {
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 25px;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #cccccc;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
 
         /* Badge di stato live */
         .status-badge-container {
-            margin: 15px 0 20px 0;
+            margin: 20px 0 25px 0;
         }
         .status-badge {
             display: inline-flex;
             align-items: center;
-            background: rgba(0, 0, 0, 0.75);
-            border: 1px solid rgba(184, 134, 11, 0.6);
-            padding: 7px 18px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(255, 215, 0, 0.6);
+            padding: 9px 22px;
             border-radius: 50px;
             color: #fff !important;
             font-size: 13px;
-            box-shadow: 0 0 12px rgba(184, 134, 11, 0.2);
+            font-weight: 500;
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
         }
         .status-badge:hover {
-            border-color: #ffd700;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            border-color: #ffe600;
+            box-shadow: 0 0 20px rgba(255, 230, 0, 0.5);
+            transform: translateY(-1px);
         }
         .status-dot {
             width: 9px;
             height: 9px;
             background-color: #00ff66;
             border-radius: 50%;
-            margin-right: 9px;
+            margin-right: 10px;
             box-shadow: 0 0 8px #00ff66;
             animation: pulse-dot 1.8s infinite;
         }
         @keyframes pulse-dot {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(0, 255, 102, 0); }
+            70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(0, 255, 102, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
         }
 
-        /* Bottoni d'azione */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
         .button-xs {
-            display: inline-block;
-            margin: 4px;
-            padding: 9px 18px;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(184, 134, 11, 0.7);
-            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: rgba(15, 15, 15, 0.85);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 6px;
             color: #fff !important;
             text-transform: uppercase;
             font-size: 12px;
+            font-weight: 600;
             letter-spacing: 1px;
-            backdrop-filter: blur(4px);
+            transition: all 0.25s ease;
         }
         .button-xs:hover {
-            background: rgba(184, 134, 11, 0.3);
-            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.2);
+            border-color: #ffe600;
+            box-shadow: 0 0 15px rgba(255, 230, 0, 0.3);
+            transform: translateY(-2px);
         }
         .button-status {
             border-color: #00ff66 !important;
@@ -120,175 +231,338 @@
         }
         .button-status:hover {
             background: rgba(0, 255, 102, 0.2) !important;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4) !important;
         }
 
-        /* Pannello laterale Contatti */
+        footer {
+            margin-top: 25px;
+        }
+        .social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffd700 !important;
+            margin: 0 6px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        .social a:hover {
+            background: #ffd700;
+            color: #000000 !important;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            transform: translateY(-3px);
+        }
+
+        /* Canvas sfondi e Overlay */
+        .background-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        #myCanvas {
+            width: 100%;
+            height: 100%;
+            opacity: 0.35;
+        }
+
+        .side-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 450px;
+            height: 100%;
+            background: rgba(12, 12, 12, 0.96);
+            border-left: 1px solid rgba(255, 215, 0, 0.4);
+            z-index: 999;
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            padding: 40px 25px;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.9);
+            overflow-y: auto;
+        }
+        .side-panel.open {
+            right: 0;
+        }
+        .close-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #ffd700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .close-panel:hover {
+            transform: rotate(90deg);
+            color: #ffffff;
+        }
+        .backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .backdrop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .social-cards-grid {
             display: flex;
             gap: 15px;
-            margin: 15px 0 25px 0;
+            margin: 20px 0;
         }
         .social-card {
             flex: 1;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 15px;
-            border-radius: 6px;
+            border-radius: 8px;
             text-align: center;
         }
         .social-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #B8860B;
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #ffd700;
         }
         .social-card i {
-            font-size: 26px;
+            font-size: 28px;
             margin-bottom: 8px;
             display: block;
         }
         .email-box {
-            background: rgba(0,0,0,0.4);
-            border: 1px dashed rgba(184, 134, 11, 0.5);
-            padding: 12px;
-            border-radius: 6px;
-            margin: 15px 0;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px dashed rgba(255, 215, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #preload {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #080808;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        #preload.fade-out {
+            opacity: 0;
+            visibility: hidden;
         }
         .preload-title {
-            color: #B8860B;
-            font-size: 22px;
-            letter-spacing: 2px;
+            font-size: 32px;
             margin-bottom: 15px;
+        }
+        .spinner-ring {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 215, 0, 0.2);
+            border-top: 3px solid #ffd700;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 
 <body>
 
-<!-- Preload -->
+<!-- Preload Screen -->
 <div id="preload">
-    <div id="preload-content">
-        <div class="preload-spinner">
-            <div class="loading-logo-wraper">
-                <div class="preload-title brand-font">MYETV</div>
-            </div>
-            <div class="tp-loader spinner"></div>
+    <div id="preload-content" style="text-align: center;">
+        <div class="brand-logo-container">
+            <span class="brand-logo-text brand-font">MYETV</span>
+            <span class="brand-logo-tm">TM</span>
         </div>
+        <div class="spinner-ring" style="margin-top: 20px;"></div>
     </div>
 </div>
 
-<!-- Content -->	
-<div id="outer-wrapper" class="animate translate-z-in">
+<!-- Main Content Area -->	
+<div id="outer-wrapper">
     <div id="inner-wrapper">
-        <div id="table-wrapper">
-            <div class="container center">
-                <div id="row-content">
-                    <div id="content-wrapper">
-                        <div id="content" class="animate translate-z-in animation-time-2s delay-1-5s">
-                            
-                            <!-- Logo Brand dimensionato e con font personalizzato -->
-                            <header>
-                                <div class="brand-logo-text brand-font">MYETV</div>
-                            </header>
-
-                            <h1>Maintenance!</h1>
-                            <h2>Sorry for the inconvenience, <a href="https://status.myetv.tv" target="_blank">we&rsquo;re performing some maintenance at the moment</a>.<br>Try again later.</h2>
-
-                            <!-- Badge live status -->
-                            <div class="status-badge-container">
-                                <a href="https://status.myetv.tv" target="_blank" class="status-badge" title="Check live system status">
-                                    <span class="status-dot"></span>
-                                    <span>Check System Status (Live)</span>
-                                </a>
-                            </div>
-
-                            <div style="width:100%;" class="center count-down animate small" data-countdown-year="2017" data-countdown-month="6" data-countdown-day="21" data-countdown-seconds="+2m"></div>
-				
-                            <div class="action-buttons">
-                                <a href="https://www.myetv.tv/" target="_self" class="button-xs"><span class="brand-font">MYETV</span>.TV</a>
-                                <a href="https://status.myetv.tv" target="_blank" class="button-xs button-status"><i class="fa fa-signal"></i> STATUS</a>
-                                <a href="https://blog.myetv.tv/" target="_blank" class="button-xs"><span>BLOG</span></a>
-                                <a href="#contact" class="button-xs open-side-panel"><span>CONTACTS</span></a>
-                            </div>
-                        </div>
-                    </div>
+        <div id="content">
+            
+            <!-- Logo Brand con Cromo Metallico e Sfumatura Gialla Attorno -->
+            <header>
+                <div class="brand-logo-container">
+                    <span class="brand-logo-text brand-font">MYETV</span>
+                    <span class="brand-logo-tm">TM</span>
                 </div>
-                <div id="row-footer">
-                    <footer>
-                        <div class="social animate translate-z-in delay-2s">
-                            <a href="mailto:admin@myetv.tv"><span class="fa fa-envelope" title="Email"></span></a>
-                            <a href="https://www.facebook.com/myetv.tv/" target="_blank"><span class="fa fa-facebook" title="Facebook"></span></a>
-                            <a href="https://twitter.com/myetvtv" target="_blank"><span class="fa fa-twitter" title="Twitter / X"></span></a>
-                            <a href="https://status.myetv.tv" target="_blank"><span class="fa fa-signal" title="Live Status"></span></a>
-                        </div>
-                    </footer>
-                </div>
+            </header>
+
+            <h1>Maintenance!</h1>
+            <h2>Sorry for the inconvenience, <a href="https://status.myetv.tv" target="_blank">we&rsquo;re performing some maintenance at the moment</a>.<br>Try again later.</h2>
+
+            <!-- Badge live status -->
+            <div class="status-badge-container">
+                <a href="https://status.myetv.tv" target="_blank" class="status-badge" title="Check live system status">
+                    <span class="status-dot"></span>
+                    <span>Check System Status (Live)</span>
+                </a>
             </div>
+
+            <!-- Pulsanti di azione rapidi -->
+            <div class="action-buttons">
+                <a href="https://www.myetv.tv/" target="_self" class="button-xs"><span class="brand-font">MYETV</span>.TV</a>
+                <a href="https://status.myetv.tv" target="_blank" class="button-xs button-status"><i class="fa fa-signal"></i> STATUS</a>
+                <a href="https://blog.myetv.tv/" target="_blank" class="button-xs"><span>BLOG</span></a>
+                <a href="#contact" class="button-xs open-side-panel"><span>CONTACTS</span></a>
+            </div>
+
+            <!-- Social Links Footer -->
+            <footer>
+                <div class="social">
+                    <a href="mailto:admin@myetv.tv" title="Email"><i class="fa fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/myetv.tv/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/myetvtv" target="_blank" title="Twitter / X"><i class="fa fa-twitter"></i></a>
+                    <a href="https://status.myetv.tv" target="_blank" title="Live Status"><i class="fa fa-signal"></i></a>
+                </div>
+            </footer>
+
         </div>
-        <!-- Background Matrix -->
-        <div class="background-wrapper overlay">
-             <canvas id="myCanvas" class="opacity-80"></canvas>
-        </div>	
     </div>
 </div>
 
-<!--Side Panel Contacts-->
+<!-- Background Canvas Overlay -->
+<div class="background-wrapper">
+    <canvas id="myCanvas"></canvas>
+</div>	
+
+<!-- Side Panel Contacts -->
 <div class="side-panel" id="contact">
     <div class="close-panel"><i class="fa fa-times"></i></div>
     <div class="wrapper">
-        <div class="tse-scrollable">
-            <div class="tse-content">
-                <div class="wrapper">
-                    <div class="container center">
-                        <section>
-                            <h2>CONTACT US</h2>
-                            <p>Want to say hello? Want to know more about us? Drop us an email and we will get back to you as soon as we can.</p>
-                            <div class="email-box">
-                                <i class="fa fa-envelope-o"></i> <a href="mailto:admin@myetv.tv">admin@myetv.tv</a>
-                            </div>
-                        </section>
-						
-                        <section>
-                            <h2>GET IN TOUCH</h2>
-                            
-                            <div class="social-cards-grid">
-                                <div class="social-card">
-                                    <i class="fa fa-facebook" style="color:#3b5998;"></i>
-                                    <div>Facebook</div>
-                                    <a href="https://www.facebook.com/myetv.tv/" target="_blank">@myetv.tv</a>
-                                </div>
-                                <div class="social-card">
-                                    <i class="fa fa-twitter" style="color:#1da1f2;"></i>
-                                    <div>X (Twitter)</div>
-                                    <a href="https://twitter.com/myetvtv" target="_blank">@myetvtv</a>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div style="width:100%;max-height:300px;">
-                                    <a class="twitter-timeline" href="https://twitter.com/myetvtv?ref_src=twsrc%5Etfw">Tweets by myetvtv</a> 
-                                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+        <section>
+            <h2 style="color: #ffd700; margin-top:0;">CONTACT US</h2>
+            <p>Want to say hello? Want to know more about us? Drop us an email and we will get back to you as soon as we can.</p>
+            <div class="email-box">
+                <i class="fa fa-envelope-o" style="color: #ffd700;"></i> <a href="mailto:admin@myetv.tv">admin@myetv.tv</a>
+            </div>
+        </section>
+        
+        <section style="margin-top: 30px;">
+            <h2 style="color: #ffd700;">GET IN TOUCH</h2>
+            
+            <div class="social-cards-grid">
+                <div class="social-card">
+                    <i class="fa fa-facebook" style="color:#3b5998;"></i>
+                    <div>Facebook</div>
+                    <a href="https://www.facebook.com/myetv.tv/" target="_blank">@myetv.tv</a>
+                </div>
+                <div class="social-card">
+                    <i class="fa fa-twitter" style="color:#1da1f2;"></i>
+                    <div>X (Twitter)</div>
+                    <a href="https://twitter.com/myetvtv" target="_blank">@myetvtv</a>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 
 <div class="backdrop"></div>
 
-<!--Java Scripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
-<script 
-  src="https://mysystemstatus.myetv.tv/assets/js/embed.js" 
-  data-fallback="https://status.myetv.tv"
-  onerror="this.onerror=null;this.src='https://status.myetv.tv/assets/js/embed.js';"
-  defer>
+
+<script>
+    (function() {
+        const canvas = document.getElementById('myCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const chars = '0123456789ABCDEFMYETV';
+        const fontSize = 14;
+        let columns = Math.floor(canvas.width / fontSize);
+        let drops = Array(columns).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.08)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#b8860b'; // Dynamic golden digital rain tint
+            ctx.font = fontSize + 'px monospace';
+
+            columns = Math.floor(canvas.width / fontSize);
+            if (drops.length < columns) {
+                while (drops.length < columns) drops.push(Math.floor(Math.random() * -50));
+            }
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                const x = i * fontSize;
+                const y = drops[i] * fontSize;
+
+                // Glowing drop head
+                if (Math.random() > 0.85) {
+                    ctx.fillStyle = '#ffffff';
+                } else {
+                    ctx.fillStyle = '#ffd700';
+                }
+
+                ctx.fillText(text, x, y);
+
+                if (y > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 40);
+    })();
+
+    $(document).ready(function() {
+        // Hide preloader
+        setTimeout(function() {
+            $('#preload').addClass('fade-out');
+        }, 600);
+
+        // Contact Side Panel Logic
+        $('.open-side-panel').on('click', function(e) {
+            e.preventDefault();
+            $('.side-panel').addClass('open');
+            $('.backdrop').addClass('visible');
+        });
+
+        $('.close-panel, .backdrop').on('click', function() {
+            $('.side-panel').removeClass('open');
+            $('.backdrop').removeClass('visible');
+        });
+    });
 </script>
-<script type="text/javascript" src="jquery.plugin.min.js"></script>
-<script type="text/javascript" src="custom.js"></script>
-<script type="text/javascript" src="matrix.js"></script>
+
 </body>
 </html>
