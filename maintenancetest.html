@@ -73,8 +73,44 @@
         }
 
         span { display: inline !important; }
-        a { color: #B8860B !important; transition: all 0.2s ease-in-out; }
-        a:hover { color: #ffd700 !important; text-decoration: none; }
+        a { color: #ffd700 !important; transition: all 0.2s ease-in-out; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
+        a:hover { color: #ffffff !important; text-decoration: none; text-shadow: 0 0 8px rgba(255, 215, 0, 0.8); }
+
+        /* Footer social icons - unified size, alignment & high visibility */
+        .social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            margin-top: 20px;
+        }
+        .social a {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            color: #ffd700 !important;
+            transition: all 0.25s ease-in-out;
+            text-decoration: none !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+        }
+        .social a:hover {
+            background: rgba(255, 215, 0, 0.25);
+            border-color: #ffd700;
+            color: #ffffff !important;
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+        .social a span, .social a i {
+            font-size: 18px !important;
+            line-height: 1 !important;
+            display: inline-block !important;
+            color: inherit !important;
+        }
 
         /* Live status badge */
         .status-badge-container {
@@ -177,8 +213,6 @@
             border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 16px;
             padding: 35px 25px;
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             max-width: 680px;
             margin: 0 auto;
